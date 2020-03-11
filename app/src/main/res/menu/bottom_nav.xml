@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeB"
+        android:title="@string/Home"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:id="@+id/latestB"
+        android:title="@string/Latest"
+        android:icon="@drawable/ic_latest"/>
+    <item
+        android:id="@+id/favoritesB"
+        android:title="@string/Favorites"
+        android:icon="@drawable/ic_fav"/>
+    <item
+        android:id="@+id/topratedB"
+        android:title="@string/Toprated"
+        android:icon="@drawable/ic_toprated"/>
+    <item
+        android:id="@+id/downloadsB"
+        android:title="@string/Downloaded"
+        android:icon="@drawable/ic_downloads"/>
+</menu>

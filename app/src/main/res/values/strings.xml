@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="Home">Home</string>
+    <string name="Latest">Latest</string>
+    <string name="Downloaded">Downloads</string>
+    <string name="Subscription">Subscriptions</string>
+    <string name="Favorites">Favorites</string>
+    <string name="Toprated">Top Rated</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
