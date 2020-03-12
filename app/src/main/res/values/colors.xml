@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#BEE8DC</color>      <!--gives color to actionBar-->
+    <color name="colorPrimaryDark">#0D475F</color>  <!--gives color to status bar-->
     <color name="colorAccent">#03DAC5</color>
+    <color name="frag1">#ff0b445c</color>
+    <color name="frag2">#ff1b4641</color>
+    <color name="frag3">#ff1f91cc</color>
+    <color name="frag4">#ff024da1</color>
+    <color name="frag5">#ff444849</color>
 </resources>

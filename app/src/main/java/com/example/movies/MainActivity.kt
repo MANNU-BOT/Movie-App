@@ -1,9 +1,14 @@
 package com.example.movies
-
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,10 +20,13 @@ class MainActivity : AppCompatActivity() {
     lateinit var topRatedFragment: TopRatedFragment
     lateinit var downloadsFragment: DownloadsFragment
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        window.statusBarColor = Color.parseColor("#ff0b445c")
+        BottomNav.setBackgroundResource(R.color.frag1)
 
 
         homefragment = HomeFragment()
@@ -29,10 +37,14 @@ class MainActivity : AppCompatActivity() {
             .commit()
 
 
-        BottomNav.setOnNavigationItemSelectedListener { item ->
+        BottomNav.setOnNavigationItemSelectedListener {
+                item ->
 
             when (item.itemId) {
                 R.id.homeB -> {
+
+                    window.statusBarColor = Color.parseColor("#ff0b445c")
+                    BottomNav.setBackgroundResource(R.color.frag1)
                     homefragment = HomeFragment()
                     supportFragmentManager
                         .beginTransaction()
@@ -42,6 +54,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.latestB -> {
+
+                    window.statusBarColor = Color.parseColor("#ff1b4641")
+                    BottomNav.setBackgroundResource(R.color.frag2)
                     latestFragment = LatestFragment()
                     supportFragmentManager
                         .beginTransaction()
@@ -51,6 +66,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.favoritesB -> {
+
+                    window.statusBarColor = Color.parseColor("#ff1f91cc")
+                    BottomNav.setBackgroundResource(R.color.frag3)
                     favFragment = FavFragment()
                     supportFragmentManager
                         .beginTransaction()
@@ -60,6 +78,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.topratedB -> {
+
+                    window.statusBarColor = Color.parseColor("#ff024da1")
+                    BottomNav.setBackgroundResource(R.color.frag4)
                     topRatedFragment = TopRatedFragment()
                     supportFragmentManager
                         .beginTransaction()
@@ -69,6 +90,10 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.downloadsB -> {
+
+                    window.statusBarColor = Color.parseColor("#ff444849")
+                    BottomNav.setBackgroundResource(R.color.frag5)
+
                     downloadsFragment = DownloadsFragment()
                     supportFragmentManager
                         .beginTransaction()
@@ -79,5 +104,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+
     }
 }
