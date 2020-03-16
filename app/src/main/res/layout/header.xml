@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:id="@+id/headerLayout"
+    android:background="@color/frag1"
+    android:padding="20dp">
+    <ImageView
+        android:id="@+id/imageH"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginLeft="12dp"
+        android:src="@drawable/appicon"
+        android:contentDescription="@string/contentDescription" />
+    <TextView
+        android:id="@+id/nameH"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="12dp"
+        android:layout_below="@id/imageH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yourname"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-light"/>
+    <TextView
+        android:textStyle="italic"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@id/nameH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="8sp"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/youemailid"
+        tools:ignore="SmallSp" />
+</RelativeLayout>

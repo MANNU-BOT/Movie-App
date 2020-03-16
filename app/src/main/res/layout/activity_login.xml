@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backimg"
+    android:orientation="vertical"
+    tools:context=".Login">
+
+    <Button
+        android:id="@+id/logoutBtn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="12dp"
+        android:background="@color/frag1"
+        android:padding="12dp"
+        android:text="@string/logout"
+        android:textColor="#B1BEC3"
+        android:textSize="16sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="12dp">
+
+        <ImageView
+            android:id="@+id/imageUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/contentDescription"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/usernameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:gravity="center"
+        android:text="@string/username"
+        android:textAlignment="center"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp">
+       <androidx.cardview.widget.CardView
+           android:id="@+id/restart"
+           android:visibility="gone"
+           android:layout_width="match_parent"
+           android:layout_height="30dp"
+           android:layout_centerInParent="true"
+           app:cardCornerRadius="12dp">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/retry" />
+       </androidx.cardview.widget.CardView>
+        <ImageView
+
+            android:id="@+id/contin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/contin" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

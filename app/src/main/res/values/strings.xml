@@ -1,5 +1,33 @@
 <resources>
     <string name="app_name">Movies</string>
+
+
+    <!-- Todo: Make a Hindi String Xml as well-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open">open</string>
+    <string name="close">CLOSE</string>
+    <string name="policy">.Copyright sucks.Policy is the best honesty.</string>
+    <string name="navopen">Navigation Open</string>
+    <string name="navclose">Navigation close</string>
+
+    <!--AppDrawer Texts-->
+    <string name="genre">Genre</string>
+    <string name="Action">ACTION</string>
+    <string name="Comedy">COMEDY</string>
+    <string name="Hollywood">HOLLYWOOD</string>
+    <string name="Kids">KIDS</string>
+    <string name="Animated">ANIMATED</string>
+    <string name="horror">HORROR</string>
+    <string name="Anime">ANIME</string>
+
+    <string name="More_Option">More Options</string>
+    <string name="about">About/FAQ</string>
+    <string name="feedback">Feedback</string>
+    <string name="reportBugs">Report Bugs</string>
+    <string name="HelpAndSupport">Help &amp; Suppport</string>
+    <string name="logout">Logout</string>
+
+    <!--Navigation Bar Text-->
     <string name="Home">Home</string>
     <string name="Latest">Latest</string>
     <string name="Downloaded">Downloads</string>
@@ -7,6 +35,50 @@
     <string name="Favorites">Favorites</string>
     <string name="Toprated">Top Rated</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--CarouselView Names-->
+    <string name="pic1">SHAZAM</string>
+    <string name="pic2">DEADPOOL</string>
+    <string name="pic3">OBLIVION</string>
+    <string name="pic4">BHAAGI 3</string>
+    <string name="pic5">INSIDE OUT</string>
+    <string name="pic6">BAHUBALI</string>
+    <string name="pic7">DEATHNOTE</string>
+
+    <!--CardText-->
+    <string name="Developer">Developed by-</string>
+    <string name="name">Manvendra Singh</string>
+    <string name="version">1.0.0</string>
+    <string name="Rating">Rating </string>
+
+    <!--BugsLayout-->
+    <string name="to">Recipient email(s)</string>
+    <string name="subjects">Subject</string>
+    <string name="message">Message</string>
+    <string name="send">SEND E-Mail</string>
+
+    <!--TemproryText-->
+    <string name="yourname">Your Name</string>
+    <string name="youemailid">Your E-mail ID</string>
+    <string name="contentDescription">NOthing</string>
+    <string name="demo">This line contains some useless text which is of no use to you so do not even waste your time on it go away gay</string>
+
+    <!--Menu item-->
+    <string name="Quit">Close the App</string>
+    <string name="Logout">Logout</string>
+    <string name="search">Movie Name</string>
+
+    <!--MoviePlayer-->
+    <string name="MovieName">Movie Name </string>
+    <string name="year">2019</string>
+    <string name="agegroup">13</string>
+    <string name="starring">Starring-</string>
+    <string name="director">Director-</string>
+    <string name="des">a long description about movie goes here and it is the part of movie that no one reads but it should be given importance as other text views are given because i am saying so you should</string>
+
+
+    <!--Login Page-->
+    <string name="Ques1">How would you like to login?</string>
+    <string name="username">Username</string>
+    <string name="conti">Continue</string>
+    <string name="error">Error!  Check your internet connection and Try restarting the App</string>
 </resources>

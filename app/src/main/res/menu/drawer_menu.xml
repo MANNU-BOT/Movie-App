@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--Drawer category for GENRE-->
+    <menu />
+    <group android:checkableBehavior="single"
+        android:id="@+id/groupD1">
+        <item android:title="@string/genre">
+            <menu>
+
+
+                <item
+                    android:id="@+id/actionD"
+                    android:title="@string/Action" />
+
+                <item
+                    android:id="@+id/comdeyD"
+                    android:title="@string/Comedy" />
+
+                <item
+                    android:id="@+id/hollywoodD"
+                    android:title="@string/Hollywood" />
+
+                <item
+                    android:id="@+id/kidsD"
+                    android:title="@string/Kids" />
+
+                <item
+                    android:id="@+id/animatedD"
+                    android:title="@string/Animated" />
+
+                <item
+                    android:id="@+id/animeD"
+                    android:title="@string/Anime" />
+
+                <item
+                    android:id="@+id/horrorD"
+                    android:title="@string/horror" />
+            </menu>
+        </item>
+    </group>
+
+
+
+
+    <!--Drawer category for more options-->
+    <group android:checkableBehavior="single"
+        android:id="@+id/groupD2">
+        <item android:title="@string/More_Option">
+            <menu>
+
+
+                <item
+                    android:id="@+id/aboutD"
+                    android:icon="@drawable/ic_about"
+                    android:title="@string/about" />
+
+                <item
+                    android:id="@+id/feedbackD"
+                    android:icon="@drawable/ic_feeback"
+                    android:title="@string/feedback" />
+
+                <item
+                    android:id="@+id/reportD"
+                    android:icon="@drawable/ic_bugs"
+                    android:title="@string/reportBugs" />
+
+                <item
+                    android:id="@+id/helpD"
+                    android:icon="@drawable/ic_help"
+                    android:title="@string/HelpAndSupport" />
+
+                <item
+                    android:id="@+id/logoutD"
+                    android:icon="@drawable/ic_logout"
+                    android:title="@string/logout" />
+            </menu>
+        </item>
+
+
+    </group>
+
+</menu>
