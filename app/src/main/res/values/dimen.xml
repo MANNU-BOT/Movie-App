@@ -3,4 +3,7 @@
     <dimen name="cardWidth">150dp</dimen>
     <dimen name="cardHeight">50dp</dimen>
     <dimen name="cardMargin">8dp</dimen>
+    <dimen name="cardcorner">8dp</dimen>
+    <dimen name="margincard">8dp</dimen>
+    <dimen name="elevation">12dp</dimen>
 </resources>

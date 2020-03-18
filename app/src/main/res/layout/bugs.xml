@@ -1,52 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bugsLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backimg"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:id="@+id/bugsLayout">
+    android:padding="20dp">
+
+
 
 
     <EditText
-        android:textStyle="italic"
-        android:id="@+id/emailB"
-        android:textColor="#90E9F3"
-        android:inputType="textEmailAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/to"/>
-
-    <EditText
-        android:textStyle="italic"
-        android:layout_marginTop="20dp"
-        android:hint="@string/subjects"
         android:id="@+id/subjectB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:textColor="#90e9f3"/>
-    <EditText
-        android:inputType="text|textMultiLine"
-        android:textStyle="italic"
         android:layout_marginTop="20dp"
+        android:hint="@string/subjects"
+        android:inputType="text"
+        android:textColor="#90e9f3"
+        android:textStyle="italic" />
+
+    <EditText
         android:id="@+id/messageB"
-        android:textColor="#A7ECF4"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:gravity="start"
         android:hint="@string/message"
-        android:gravity="start"/>
+        android:inputType="text|textMultiLine"
+        android:textColor="#A7ECF4"
+        android:textStyle="italic" />
 
-    <Button
-        android:elevation="12dp"
-        android:layout_marginTop="30dp"
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:src="@drawable/ic_send"
+        android:scaleType="centerCrop"
         android:id="@+id/buttonB"
-        android:layout_gravity="center"
-        android:layout_width="150dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="#1F6780"
-        android:text="@string/send"/>
-
+        android:layout_gravity="end"
+        android:layout_marginTop="4dp" />
 
 
 </LinearLayout>

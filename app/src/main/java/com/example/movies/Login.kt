@@ -43,16 +43,17 @@ class Login : AppCompatActivity() {
         )
 
         Options()
-             Handler().postDelayed({
                  contin.setOnClickListener {
                      if(g!=0) {
                          val i = Intent(this, MainActivity::class.java)
+                         i.putExtra("name",usrName)
+                         i.putExtra("id",usrID)
+                         i.putExtra("url",usrImg)
                          finish()
                          startActivity(i)
                      }
                  }
 
-             },1500)
 
 
         logoutBtn1.setOnClickListener {
@@ -74,7 +75,6 @@ class Login : AppCompatActivity() {
 
                             }
                     }
-                    .setNegativeButton("No", null)
                     .setNeutralButton("Cancel") { dialog, which ->
                         Toast.makeText(this, "You clicked Cancel", Toast.LENGTH_SHORT).show()
                     }
@@ -102,6 +102,9 @@ class Login : AppCompatActivity() {
                 usernameText.text=user.displayName
                 Picasso.with(this).load(user.photoUrl).into(imageUser)
 
+                usrName= user.displayName.toString()
+                usrID=user.email.toString()
+                usrImg=user.photoUrl.toString()
                 logoutBtn1.isEnabled=true
 
             }
@@ -119,6 +122,7 @@ class Login : AppCompatActivity() {
                 g=0
             }
         }
+
     }
 
     private fun Options(){

@@ -6,9 +6,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">open</string>
     <string name="close">CLOSE</string>
-    <string name="policy">.Copyright sucks.Policy is the best honesty.</string>
+    <string name="policy">.Copyright \t Policy.</string>
     <string name="navopen">Navigation Open</string>
     <string name="navclose">Navigation close</string>
+    <string name="selectType">Select Type(Optional)</string>
 
     <!--AppDrawer Texts-->
     <string name="genre">Genre</string>
@@ -66,6 +67,7 @@
     <string name="Quit">Close the App</string>
     <string name="Logout">Logout</string>
     <string name="search">Movie Name</string>
+    <string name="option">OPTION</string>
 
     <!--MoviePlayer-->
     <string name="MovieName">Movie Name </string>
@@ -73,7 +75,7 @@
     <string name="agegroup">13</string>
     <string name="starring">Starring-</string>
     <string name="director">Director-</string>
-    <string name="des">a long description about movie goes here and it is the part of movie that no one reads but it should be given importance as other text views are given because i am saying so you should</string>
+    <string name="des">a long description about movie goes here and it is the part which gives a brief information about the movie and few spoilers so plz stop reading this</string>
 
 
     <!--Login Page-->
@@ -81,4 +83,9 @@
     <string name="username">Username</string>
     <string name="conti">Continue</string>
     <string name="error">Error!  Check your internet connection and Try restarting the App</string>
+    <string name="yearSearch">Year(Optional)</string>
+    <string name="searchButtonMain">search</string>
+    <string name="title">Title</string>
+    <string name="moreinfo">moreinfo</string>
+    <string name="animated">ANIMATED</string>
 </resources>

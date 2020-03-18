@@ -2,11 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="wrap_content"
     android:id="@+id/headerLayout"
     android:background="@color/frag1"
     android:padding="20dp">
     <ImageView
+        android:layout_marginTop="16dp"
         android:id="@+id/imageH"
         android:layout_width="90dp"
         android:layout_height="90dp"
@@ -23,8 +24,9 @@
         android:text="@string/yourname"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
-        android:fontFamily="sans-serif-light"/>
+       android:fontFamily="@font/bamboo"/>
     <TextView
+        android:id="@+id/idH"
         android:textStyle="italic"
         android:layout_marginTop="2dp"
         android:layout_marginLeft="15dp"

@@ -36,7 +36,8 @@
                 android:layout_toRightOf="@id/imageA"
                 android:text="@string/app_name"
                 android:textColor="@color/frag1"
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                android:fontFamily="@font/rough3"/>
 
             <TextView
                 android:id="@+id/textA2"
@@ -87,10 +88,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:fontFamily="sans-serif-black"
+                android:fontFamily="sans-serif-medium"
                 android:gravity="center"
                 android:text="@string/name"
-                android:textColor="@color/frag1"
+                android:textColor="#3D5AFE"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -117,34 +118,34 @@
             <ImageView
                 android:id="@+id/instaA"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:src="@drawable/insta" />
 
             <ImageView
                 android:id="@+id/twitterA"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:src="@drawable/twitter" />
 
             <ImageView
                 android:id="@+id/youtubeA"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:src="@drawable/youtube" />
 
             <ImageView
                 android:id="@+id/linkedinA"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:src="@drawable/linkedin" />
 
             <ImageView
                 android:id="@+id/githubA"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="16dp"
                 android:src="@drawable/github1" />
 

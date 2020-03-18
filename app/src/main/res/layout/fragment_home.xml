@@ -33,6 +33,7 @@
                 android:rowCount="3">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/block1"
                     android:layout_width="@dimen/cardWidth"
                     android:layout_height="@dimen/cardHeight"
                     android:layout_marginLeft="8dp"

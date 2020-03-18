@@ -9,8 +9,12 @@
         android:title="@string/search"
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always" />
-    <item android:title="@string/Quit" />
     <item
-        android:id="@+id/logoutT"
-        android:title="@string/Logout" />
+        android:icon="@drawable/ic_exit"
+        android:id="@+id/closeT"
+        android:title="@string/Quit" />
+    <item
+        android:icon="@drawable/ic_settings"
+        android:id="@+id/opt1T"
+        android:title="@string/option" />
 </menu>
