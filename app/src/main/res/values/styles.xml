@@ -3,6 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:fontFamily">@font/neo_latina</item>
+        <item name="android:textStyle">bold</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -24,12 +26,14 @@
     <style name="AppTheme.PopupOverlay"  parent="Theme.AppCompat.Light"/>
 
     <style name="CardTextStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:fontFamily">@font/omiwa</item>
     </style>
 
     <style name="videoPlayerText">
@@ -37,7 +41,35 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">#2D2E2E</item>
-        <item name="android:fontFamily">sans-serif-condensed-light</item>
     </style>
 
+    <style name="FontforTitle">
+        <item name="fontFamily">@font/omiwa</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FragLatestCardStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
+    <style name="LatestCardViewTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:fontFamily">@font/neo_latina</item>
+    </style>
+
+    <style name="LatestCardGenre">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:fontFamily">@font/neo_latina</item>
+    </style>
 </resources>

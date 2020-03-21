@@ -50,11 +50,17 @@ class About : AppCompatActivity() {
         }
 
         nameA.setOnClickListener {
-            val browser = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Manvendra.Is.D.Boss"))
+            val browser = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.facebook.com/Manvendra.Is.D.Boss")
+            )
             startActivity(browser)
         }
         instaA.setOnClickListener {
-            val browser = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/manvendra966/?hl=en"))
+            val browser = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.instagram.com/manvendra966/?hl=en")
+            )
             startActivity(browser)
         }
         twitterA.setOnClickListener {
@@ -62,20 +68,20 @@ class About : AppCompatActivity() {
             startActivity(browser)
         }
         youtubeA.setOnClickListener {
-            val browser = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCLt6rvmptB032J3ljWTUmcQ?view_as=subscriber"))
+            val browser = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com"))
             startActivity(browser)
         }
         linkedinA.setOnClickListener {
-            val browser = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/manvendra-pratap-singh-54b2861a2/"))
+            val browser = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.linkedin.com/in/manvendra-pratap-singh-54b2861a2/")
+            )
             startActivity(browser)
         }
         githubA.setOnClickListener {
             val browser = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/MANNU-BOT"))
             startActivity(browser)
         }
-
-
-
 
 
     }

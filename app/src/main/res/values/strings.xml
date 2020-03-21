@@ -3,12 +3,14 @@
 
 
     <!-- Todo: Make a Hindi String Xml as well-->
+    <!--Todo:Make Snackbar for register page-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">open</string>
     <string name="close">CLOSE</string>
     <string name="policy">.Copyright \t Policy.</string>
     <string name="navopen">Navigation Open</string>
     <string name="navclose">Navigation close</string>
+    <string name="searchicon">Search</string>
     <string name="selectType">Select Type(Optional)</string>
 
     <!--AppDrawer Texts-->
@@ -88,4 +90,8 @@
     <string name="title">Title</string>
     <string name="moreinfo">moreinfo</string>
     <string name="animated">ANIMATED</string>
+    <string name="comdey">COMEDY</string>
+    <string name="status">Not Completed yet</string>
+    <string name="anime">ANIME</string>
+    <string name="About">A simple movie app which displays information about movies.You can search and add favorites to your list. You can check from the pre loaded list of movies which are on home, Genre, latest and Top rated page. I am at beginner level so cannot make a perfect efficiently coded app so you may find bugs. Bugs can be sent through e-mail in the bugs section  </string>
 </resources>

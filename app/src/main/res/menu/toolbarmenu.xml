@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <item
-        android:id="@+id/app_bar_search"
-        android:icon="@drawable/ic_search_black_24dp"
-        android:title="@string/search"
-        app:actionViewClass="android.widget.SearchView"
-        app:showAsAction="always" />
-    <item
-        android:icon="@drawable/ic_exit"
         android:id="@+id/closeT"
+        android:icon="@drawable/ic_exit"
         android:title="@string/Quit" />
     <item
-        android:icon="@drawable/ic_settings"
         android:id="@+id/opt1T"
-        android:title="@string/option" />
+        android:icon="@drawable/ic_settings"
+        android:title="Delete Account" />
 </menu>

@@ -8,13 +8,12 @@
     android:padding="20dp">
 
 
-
-
     <EditText
         android:id="@+id/subjectB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/neo_latina"
         android:hint="@string/subjects"
         android:inputType="text"
         android:textColor="#90e9f3"
@@ -23,8 +22,9 @@
     <EditText
         android:id="@+id/messageB"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/neo_latina"
         android:gravity="start"
         android:hint="@string/message"
         android:inputType="text|textMultiLine"
@@ -33,13 +33,13 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:src="@drawable/ic_send"
-        android:scaleType="centerCrop"
         android:id="@+id/buttonB"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="end"
-        android:layout_marginTop="4dp" />
+        android:layout_marginTop="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_send" />
 
 
 </LinearLayout>

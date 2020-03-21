@@ -6,15 +6,19 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.StatFs
 import android.view.Gravity
 import android.view.Menu
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
+import com.firebase.ui.auth.AuthUI
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.header.*
 
@@ -28,7 +32,7 @@ open class MainActivity : AppCompatActivity() {
     lateinit var topRatedFragment: TopRatedFragment
     lateinit var downloadsFragment: DownloadsFragment
     var x: String? = "zero"
-    var y:String?= "zero"
+    var y: String? = "zero"
 
     @SuppressLint("WrongConstant")
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -38,6 +42,8 @@ open class MainActivity : AppCompatActivity() {
         val bun = intent.extras
 
         setSupportActionBar(mainBar)                                                  //setting the toolbar
+        mainBar.setTitle(R.string.Home)
+        mainBar.setTitleTextAppearance(this, R.style.FontforTitle)
         drawerLay.layoutDirection = Gravity.START
         val toggle = ActionBarDrawerToggle(
             this, drawerLay, mainBar, 0, 0
@@ -62,6 +68,21 @@ open class MainActivity : AppCompatActivity() {
             .commit()
 
 
+        bottomNav()
+        Drawer()
+        ToolbarMenu()
+        updateHeader()
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.toolbarmenu, menu)
+        return true
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    fun bottomNav() {
         BottomNav.setOnNavigationItemSelectedListener { item ->
 
             when (item.itemId) {
@@ -73,6 +94,8 @@ open class MainActivity : AppCompatActivity() {
                         Color.parseColor("#ff0b445c")                                  //changes color of status bar
                     BottomNav.setBackgroundResource(R.drawable.navbar1)                //changes background of NavigationBar
                     mainAppbar.setBackgroundResource(R.drawable.navbar1)               //changes AppBar Background
+                    mainBar.setTitle(R.string.Home)
+                    mainBar.setTitleTextAppearance(this, R.style.FontforTitle)
                     homefragment = HomeFragment()
                     supportFragmentManager
                         .beginTransaction()                                            //shows Home fragment
@@ -90,6 +113,7 @@ open class MainActivity : AppCompatActivity() {
                         Color.parseColor("#ff1b4641")              //changes color of status bar
                     BottomNav.setBackgroundResource(R.drawable.navbar2)                //changes background of NavigationBar
                     mainAppbar.setBackgroundResource(R.drawable.navbar2)               //changes AppBar Background
+                    mainBar.setTitle(R.string.Latest)
                     latestFragment = LatestFragment()
                     supportFragmentManager
                         .beginTransaction()                                            //shows Latest fragment
@@ -107,7 +131,7 @@ open class MainActivity : AppCompatActivity() {
                         Color.parseColor("#ff1f91cc")             //changes color of status bar
                     BottomNav.setBackgroundResource(R.drawable.navbar3)               //changes background of NavigationBar
                     mainAppbar.setBackgroundResource(R.drawable.navbar3)               //changes AppBar Background
-
+                    mainBar.setTitle(R.string.Favorites)
                     favFragment = FavFragment()
                     supportFragmentManager
                         .beginTransaction()                                           //shows fav fragment
@@ -125,7 +149,7 @@ open class MainActivity : AppCompatActivity() {
                         Color.parseColor("#ff024da1")            //changes color of status bar
                     BottomNav.setBackgroundResource(R.drawable.navbar4)              //changes background of NavigationBar
                     mainAppbar.setBackgroundResource(R.drawable.navbar4)               //changes AppBar Background
-
+                    mainBar.setTitle(R.string.Toprated)
                     topRatedFragment = TopRatedFragment()
                     supportFragmentManager
                         .beginTransaction()                                          //shows topRated fragment
@@ -136,6 +160,7 @@ open class MainActivity : AppCompatActivity() {
 
                 R.id.downloadsB -> {
 
+
                     x = "five"
                     drawer.setBackgroundResource(R.drawable.backdown)
                     headerLayout.setBackgroundResource(R.color.frag5)
@@ -143,7 +168,7 @@ open class MainActivity : AppCompatActivity() {
                         Color.parseColor("#ff444849")            //changes color of status bar
                     BottomNav.setBackgroundResource(R.drawable.navbar5)              //changes background of NavigationBar
                     mainAppbar.setBackgroundResource(R.drawable.navbar5)               //changes AppBar Background
-
+                    mainBar.setTitle(R.string.Downloaded)
 
                     downloadsFragment = DownloadsFragment()
                     supportFragmentManager
@@ -156,37 +181,42 @@ open class MainActivity : AppCompatActivity() {
             true
         }
 
+    }
+
+    @SuppressLint("WrongConstant")
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    fun Drawer() {
         drawer.setNavigationItemSelectedListener { item ->
 
             when (item.itemId) {
                 R.id.actionD -> {
-                    y="one"
-                    val i =Intent(this,Grid::class.java)
-                    i.putExtra("key",y)
+                    y = "one"
+                    val i = Intent(this, SampleMovies::class.java)
+                    i.putExtra("key", y)
                     startActivity(i)
                 }
                 R.id.comdeyD -> {
-                    y="two"
-                    val i =Intent(this,Grid::class.java)
-                    i.putExtra("key",y)
+                    y = "two"
+                    val i = Intent(this, SampleMovies::class.java)
+                    i.putExtra("key", y)
                     startActivity(i)
                 }
                 R.id.horrorD -> {
-                    y="three"
-                    val i =Intent(this,Grid::class.java)
-                    i.putExtra("key",y)
+                    y = "three"
+                    val i = Intent(this, SampleMovies::class.java)
+                    i.putExtra("key", y)
                     startActivity(i)
                 }
                 R.id.animatedD -> {
-                    y="four"
-                    val i =Intent(this,Grid::class.java)
-                    i.putExtra("key",y)
+                    y = "four"
+                    val i = Intent(this, SampleMovies::class.java)
+                    i.putExtra("key", y)
                     startActivity(i)
                 }
                 R.id.animeD -> {
-                    y="five"
-                    val i =Intent(this,Grid::class.java)
-                    i.putExtra("key",y)
+                    y = "five"
+                    val i = Intent(this, SampleMovies::class.java)
+                    i.putExtra("key", y)
                     startActivity(i)
                 }
                 R.id.hollywoodD -> {
@@ -196,12 +226,16 @@ open class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "clicked", Toast.LENGTH_LONG).show()
                 }
                 R.id.aboutD -> {
-                val a = Intent(this, About::class.java)
-                a.putExtra("key", x)
-                startActivity(a)
-            }                        //Opens About Section
+                    val a = Intent(this, About::class.java)
+                    a.putExtra("key", x)
+                    startActivity(a)
+                }                        //Opens About Section
                 R.id.feedbackD -> {
-                    Toast.makeText(this, "will be active is ever reached Playstore", Toast.LENGTH_LONG)
+                    Toast.makeText(
+                        this,
+                        "will be active is ever reached Playstore",
+                        Toast.LENGTH_LONG
+                    )
                         .show()
                 }                     //will take to playstore
                 R.id.reportD -> {
@@ -225,9 +259,11 @@ open class MainActivity : AppCompatActivity() {
                         .setMessage("Are you sure you want to logout?")
                         .setIcon(R.drawable.ic_logout1)
                         .setPositiveButton("Yes") { dialog, which ->
-                            val l = Intent(this, Login::class.java)
-                            startActivity(l)
-
+                            AuthUI.getInstance().signOut(this@MainActivity)
+                                .addOnCompleteListener {
+                                    startActivity(Intent(this, Login::class.java))
+                                    finish()
+                                }
                         }.setNeutralButton("No") { dialog, which ->
                             Toast.makeText(this, "You clicked Cancel", Toast.LENGTH_SHORT).show()
                         }
@@ -241,6 +277,10 @@ open class MainActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    fun ToolbarMenu() {
+
         mainBar.setOnMenuItemClickListener { item ->
 
             when (item.itemId) {
@@ -251,11 +291,29 @@ open class MainActivity : AppCompatActivity() {
                         .setMessage("Do you want to exit?")
                         .setIcon(R.drawable.ic_exitdark)
                         .setPositiveButton("Yes") { dialog, which ->
-                         finishAffinity()
+                            finishAffinity()
                         }.setNeutralButton("No", null)
                     val dialog: AlertDialog = warn.create()
                     dialog.show()
                 }
+                R.id.opt1T -> {
+
+                    val warn = AlertDialog.Builder(this)
+                    warn.setTitle("Warning")
+                        .setMessage("Are you sure you want to delete?")
+                        .setIcon(R.drawable.ic_warning)
+                        .setPositiveButton("Yes") { dialog, which ->
+                            AuthUI.getInstance()
+                                .delete(this)
+                                .addOnCompleteListener {
+                                    startActivity(Intent(this, Login::class.java))
+                                    finish()
+                                }
+                        }.setNeutralButton("No", null)
+                    val dialog: AlertDialog = warn.create()
+                    dialog.show()
+                }
+
                 else -> {
                     Toast.makeText(this, "Adding Soon", Toast.LENGTH_SHORT).show()
                 }
@@ -263,14 +321,17 @@ open class MainActivity : AppCompatActivity() {
             true
         }
 
-
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        super.onCreateOptionsMenu(menu)
-        menuInflater.inflate(R.menu.toolbarmenu, menu)
-        return true
-    }
+    fun updateHeader() {
+        val f: FirebaseUser? = FirebaseAuth.getInstance().currentUser
+        val s: String? = f!!.email
 
+        val h: View = drawer.getHeaderView(0)
+        val t: TextView = h.findViewById(R.id.nameH)
+        t.text = s
+
+    }
 
 }
+

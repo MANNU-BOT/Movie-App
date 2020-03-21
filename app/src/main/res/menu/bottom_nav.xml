@@ -18,6 +18,6 @@
         android:icon="@drawable/ic_toprated"/>
     <item
         android:id="@+id/downloadsB"
-        android:title="@string/Downloaded"
-        android:icon="@drawable/ic_downloads"/>
+        android:title="@string/searchicon"
+        android:icon="@drawable/ic_search"/>
 </menu>

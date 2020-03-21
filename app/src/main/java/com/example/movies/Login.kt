@@ -1,136 +1,99 @@
 package com.example.movies
 
-import android.app.Activity
+import android.content.Context
 import android.content.Intent
-import android.media.Image
-import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
+import android.util.Patterns
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.IdpResponse
-import com.google.android.gms.auth.api.Auth
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
-import java.util.*
-import com.example.movies.Splash
-import com.jakewharton.processphoenix.ProcessPhoenix
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_main.*
 
 class Login : AppCompatActivity() {
 
-    private val MY_REQUEST_CODE: Int=7117
-    lateinit var provider :List<AuthUI.IdpConfig>
+    private lateinit var auth: FirebaseAuth
     lateinit var usrName: String
     lateinit var usrID: String
     lateinit var usrImg: String
-    var g=1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        provider=Arrays.asList<AuthUI.IdpConfig>(
-            AuthUI.IdpConfig.EmailBuilder().build(),
-            AuthUI.IdpConfig.GoogleBuilder().build(),
-            AuthUI.IdpConfig.PhoneBuilder().build()
-        )
+        auth = FirebaseAuth.getInstance()
 
-        Options()
-                 contin.setOnClickListener {
-                     if(g!=0) {
-                         val i = Intent(this, MainActivity::class.java)
-                         i.putExtra("name",usrName)
-                         i.putExtra("id",usrID)
-                         i.putExtra("url",usrImg)
-                         finish()
-                         startActivity(i)
-                     }
-                 }
-
-
-
-        logoutBtn1.setOnClickListener {
-
-
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("Logout")
-                    .setMessage("Are you sure you want to logout?")
-                    .setIcon(R.drawable.ic_logout1)
-                    .setPositiveButton("Yes") { dialog, which ->
-
-                        AuthUI.getInstance().signOut(this@Login)
-                            .addOnCompleteListener {
-                                logoutBtn1.isEnabled=false
-                                Options()
-                            }
-                            .addOnFailureListener {
-                               e-> Toast.makeText(this,e.message,Toast.LENGTH_SHORT).show()
-
-                            }
-                    }
-                    .setNeutralButton("Cancel") { dialog, which ->
-                        Toast.makeText(this, "You clicked Cancel", Toast.LENGTH_SHORT).show()
-                    }
-                val dialog: AlertDialog=builder.create()
-                dialog.show()
-            }
-
-
+        SignUpButton.setOnClickListener {
+            startActivity(Intent(this, Register::class.java))
         }
 
+        LoginButton.setOnClickListener {
+            LoginMe()
+            val v: View? = this.currentFocus
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(v!!.windowToken, 0)
+        }
 
+    }
 
+    private fun LoginMe() {
 
+        if (EmailLogin.text.toString().isEmpty()) {
+            EmailLogin.error = "Enter Email-id"
+            EmailLogin.requestFocus()
+            return
+        }
+        if (!Patterns.EMAIL_ADDRESS.matcher(EmailLogin.text.toString()).matches()) {
+            EmailLogin.error = "Enter valid Email-id"
+        }
+        if (passwordLogin.text.toString().isEmpty()) {
+            passwordLogin.error = "Enter password"
+            passwordLogin.requestFocus()
+            return
+        }
 
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode==MY_REQUEST_CODE)
-        {
-            val response = IdpResponse.fromResultIntent(data)
-            if(resultCode==Activity.RESULT_OK)
-            {
-                val user=FirebaseAuth.getInstance().currentUser
-                Toast.makeText(this,""+user!!.email,Toast.LENGTH_SHORT).show()
-                usernameText.text=user.displayName
-                Picasso.with(this).load(user.photoUrl).into(imageUser)
-
-                usrName= user.displayName.toString()
-                usrID=user.email.toString()
-                usrImg=user.photoUrl.toString()
-                logoutBtn1.isEnabled=true
-
-            }
-            else{
-                Toast.makeText(this,""+response!!.error!!.message,Toast.LENGTH_SHORT).show()
-                logoutBtn1.isEnabled=false
-                imageUser.setImageResource(R.drawable.error)
-                usernameText.text=getString(R.string.error)
-                contin.visibility= View.GONE
-                restart.visibility=View.VISIBLE
-
-                restart.setOnClickListener {
-                    ProcessPhoenix.triggerRebirth(this)
+        auth.signInWithEmailAndPassword(EmailLogin.text.toString(), passwordLogin.text.toString())
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val user = auth.currentUser
+                    updateUI(user)
+                } else {
+                    updateUI(null)
                 }
-                g=0
             }
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        updateUI(currentUser)
+    }
+
+    private fun updateUI(currentUser: FirebaseUser?) {
+
+        if (currentUser != null) {
+            if (currentUser.isEmailVerified) {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            } else {
+                Toast.makeText(
+                    baseContext, "Verify your email",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        } else {
+            Toast.makeText(
+                baseContext, "Login Failed",
+                Toast.LENGTH_SHORT
+            ).show()
+
         }
 
     }
-
-    private fun Options(){
-        startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()
-            .setAvailableProviders(provider)
-            .setTheme(R.style.MyTheme)
-            .build(),MY_REQUEST_CODE)
-    }
-
-
 }
+
+
+

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="cardWidth">150dp</dimen>
-    <dimen name="cardHeight">50dp</dimen>
+    <dimen name="cardHeight">60dp</dimen>
     <dimen name="cardMargin">8dp</dimen>
     <dimen name="cardcorner">8dp</dimen>
     <dimen name="margincard">8dp</dimen>
