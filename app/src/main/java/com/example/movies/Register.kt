@@ -36,7 +36,6 @@ class Register : AppCompatActivity() {
             UsrnameRegi.error = "Enter Username"
             UsrnameRegi.requestFocus()
             return
-
         }
         if (emailRegi.text.toString().isEmpty()) {
             emailRegi.error = "Enter Email-id"

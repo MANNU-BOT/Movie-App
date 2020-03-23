@@ -12,54 +12,54 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="type"
+            android:textSize="28sp"
+            android:gravity="center"
+            android:id="@+id/typeD"/>
+
 
         <ImageView
             android:id="@+id/movieView"
             android:layout_width="match_parent"
             android:layout_height="430dp"
             android:layout_margin="8dp"
-            android:src="@drawable/top4" />
+            android:src="@drawable/error" />
 
 
         <TextView
-            android:id="@+id/textV1"
+            android:id="@+id/titleD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:fontFamily="@font/neo_latina"
+            android:fontFamily="@font/stiffbrushjk"
             android:text="@string/MovieName"
             android:textColor="#000000"
-            android:textSize="28sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
+
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textV2"
+                android:id="@+id/yearD"
                 style="@style/videoPlayerText"
                 android:fontFamily="sans-serif-condensed"
                 android:text="@string/year" />
 
             <TextView
-                android:id="@+id/textV3"
+                android:paddingBottom="8dp"
+                android:id="@+id/genreD"
                 style="@style/videoPlayerText"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="100dp"
+                android:layout_marginLeft="12dp"
                 android:fontFamily="@font/neo_latina"
                 android:text="@string/genre" />
 
-            <TextView
-                android:id="@+id/textV4"
-                style="@style/videoPlayerText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="16dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="end"
-                android:text="@string/agegroup" />
         </LinearLayout>
 
 
@@ -78,32 +78,103 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/plotD"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/neo_latina"
+                    android:fontFamily="sans-serif-light"
                     android:paddingLeft="8dp"
                     android:paddingTop="4dp"
                     android:text="@string/des" />
 
+
                 <TextView
+                    android:id="@+id/starringD"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/neo_latina"
+                    android:fontFamily="sans-serif-light"
                     android:paddingLeft="8dp"
                     android:text="@string/starring" />
 
                 <TextView
+                    android:id="@+id/writerD"
+                    style="@style/DetailsTextStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="Writers-" />
+
+                <TextView
+                    android:id="@+id/directorD"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/neo_latina"
+                    android:fontFamily="sans-serif-light"
                     android:paddingLeft="8dp"
                     android:text="@string/director" />
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="4dp"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/frag1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/countryD"
+                    style="@style/DetailsTextStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="Country-" />
+
+                <TextView
+                    android:id="@+id/LanguageD"
+                    style="@style/DetailsTextStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="Languages-" />
+
+
+                <TextView
+                    android:id="@+id/runtimeD"
+                    style="@style/DetailsTextStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="Runtime-" />
+
+                <TextView
+                    android:id="@+id/ratingD"
+                    style="@style/DetailsTextStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="Rating-" />
+
+                <TextView
+                    android:id="@+id/votesD"
+                    style="@style/DetailsTextStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="Votes-" />
+
+
+                <TextView
+                    android:id="@+id/awardD"
+                    style="@style/DetailsTextStyle"
+                    android:layout_marginTop="10dp"
+                    android:text="Awards-" />
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -121,15 +192,15 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/shareV"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:id="@+id/shareD"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
                     android:paddingTop="5dp"
                     android:src="@drawable/ic_share" />
 
                 <ImageView
-                    android:id="@+id/wishV"
+                    android:id="@+id/wishD"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
@@ -138,10 +209,11 @@
 
                 <com.like.LikeButton
                     android:id="@+id/heart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
-                    app:icon_size="16dp"
+                    android:padding="8dp"
+                    app:icon_size="10dp"
                     app:icon_type="heart" />
             </LinearLayout>
 

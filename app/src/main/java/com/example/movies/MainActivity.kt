@@ -40,34 +40,7 @@ open class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val bun = intent.extras
-
-        setSupportActionBar(mainBar)                                                  //setting the toolbar
-        mainBar.setTitle(R.string.Home)
-        mainBar.setTitleTextAppearance(this, R.style.FontforTitle)
-        drawerLay.layoutDirection = Gravity.START
-        val toggle = ActionBarDrawerToggle(
-            this, drawerLay, mainBar, 0, 0
-        )
-        drawerLay.addDrawerListener(toggle)
-        toggle.syncState()
-
-        //initial state
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)                             //Adds a back button
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.drawer)                     //Displaying drawer icon for homePage
-        window.statusBarColor =
-            Color.parseColor("#ff0b445c")                                             //changes color of status bar
-        BottomNav.setBackgroundResource(R.drawable.navbar1)                           //changes background of NavigationBar
-
-
-        homefragment =
-            HomeFragment()                                                             //To show default fragment when app starts
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.FrameLB, homefragment)
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .commit()
-
-
+        initialState()
         bottomNav()
         Drawer()
         ToolbarMenu()
@@ -102,7 +75,6 @@ open class MainActivity : AppCompatActivity() {
                         .replace(R.id.FrameLB, homefragment)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
-
                 }
 
                 R.id.latestB -> {
@@ -177,6 +149,7 @@ open class MainActivity : AppCompatActivity() {
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         .commit()
                 }
+
             }
             true
         }
@@ -332,6 +305,35 @@ open class MainActivity : AppCompatActivity() {
         t.text = s
 
     }
+
+    @SuppressLint("WrongConstant")
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    fun initialState(){
+        setSupportActionBar(mainBar)                                                  //setting the toolbar
+        mainBar.setTitle(R.string.Home)                                               //Changing the title
+        mainBar.setTitleTextAppearance(this, R.style.FontforTitle)            //Changing the font using style
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)                             //Adds a back button
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.drawer)                     //Displaying drawer icon for homePage
+        window.statusBarColor = Color.parseColor("#ff0b445c")                         //changes color of status bar
+        BottomNav.setBackgroundResource(R.drawable.navbar1)                           //changes background of NavigationBar
+
+        drawerLay.layoutDirection = Gravity.START                                     //Setting Up the drawer
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLay, mainBar, 0, 0
+        )
+        drawerLay.addDrawerListener(toggle)
+        toggle.syncState()
+
+
+        homefragment =
+            HomeFragment()                                                             //To show default fragment when app starts
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.FrameLB, homefragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            .commit()
+    }
+
 
 }
 

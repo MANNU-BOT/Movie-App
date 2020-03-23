@@ -26,5 +26,5 @@
         android:fontFamily="sans-serif-thin"
         android:text="@string/yourname"
         android:textColor="@color/colorPrimary"
-        android:textSize="20sp" />
+        android:textSize="12sp" />
 </RelativeLayout>
