@@ -140,7 +140,7 @@ open class MainActivity : AppCompatActivity() {
                         Color.parseColor("#ff444849")            //changes color of status bar
                     BottomNav.setBackgroundResource(R.drawable.navbar5)              //changes background of NavigationBar
                     mainAppbar.setBackgroundResource(R.drawable.navbar5)               //changes AppBar Background
-                    mainBar.setTitle(R.string.Downloaded)
+                    mainBar.setTitle(R.string.Search)
 
                     downloadsFragment = DownloadsFragment()
                     supportFragmentManager

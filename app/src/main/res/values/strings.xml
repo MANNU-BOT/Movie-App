@@ -33,7 +33,7 @@
     <!--Navigation Bar Text-->
     <string name="Home">Home</string>
     <string name="Latest">Latest</string>
-    <string name="Downloaded">Downloads</string>
+    <string name="Search">SEARCH</string>
     <string name="Subscription">Subscriptions</string>
     <string name="Favorites">Favorites</string>
     <string name="Toprated">Top Rated</string>
@@ -94,4 +94,5 @@
     <string name="status">Not Completed yet</string>
     <string name="anime">ANIME</string>
     <string name="About">A simple movie app which displays information about movies.You can search and add favorites to your list. You can check from the pre loaded list of movies which are on home, Genre, latest and Top rated page. I am at beginner level so cannot make a perfect efficiently coded app so you may find bugs. Bugs can be sent through e-mail in the bugs section  </string>
+    <string name="top_ten_highest_rated_movies">Top Ten Highest Rated Movies</string>
 </resources>

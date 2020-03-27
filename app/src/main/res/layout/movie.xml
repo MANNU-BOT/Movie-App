@@ -25,8 +25,7 @@
             android:id="@+id/movieView"
             android:layout_width="match_parent"
             android:layout_height="430dp"
-            android:layout_margin="8dp"
-            android:src="@drawable/error" />
+            android:layout_margin="8dp" />
 
 
         <TextView

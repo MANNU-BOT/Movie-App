@@ -13,23 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/neo_latina"
         android:hint="@string/subjects"
         android:inputType="text"
         android:textColor="#90e9f3"
-        android:textStyle="italic" />
+        android:textStyle="italic|normal" />
 
     <EditText
         android:id="@+id/messageB"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/neo_latina"
         android:gravity="start"
         android:hint="@string/message"
         android:inputType="text|textMultiLine"
         android:textColor="#A7ECF4"
-        android:textStyle="italic" />
+        android:textStyle="italic|normal" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
