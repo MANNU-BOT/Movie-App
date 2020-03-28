@@ -82,7 +82,7 @@ class DownloadsFragment : Fragment() {
                                 val b = "Year:-" + j.getString("Year")
                                 id = j.getString("imdbID")
                                 val e = j.getString("Poster")
-                                elist.add(ExampleItem(a, b, e))
+                                elist.add(ExampleItem(a, b, e,id))
                             }
                             eadap = ExampleAdapter(requireContext(), elist)
                             recycler.adapter = eadap
@@ -90,7 +90,8 @@ class DownloadsFragment : Fragment() {
                             mainProgressBar.visibility=View.GONE
                         } else {
                             recycler.visibility = View.GONE
-                            Toast.makeText(requireContext(), "Not Found ", Toast.LENGTH_SHORT).show()
+                            mainProgressBar.visibility=View.GONE
+                            Toast.makeText(requireContext(), "Not Found :( ", Toast.LENGTH_SHORT).show()
                             noOfResults.text="Total Results:- 0 {not found}"
                         }
                     },
@@ -127,12 +128,11 @@ class DownloadsFragment : Fragment() {
 
                     if ((isScrolling) && (curItem + scrOutItem == totItem)) {
 
-                        //data fetch
                         isScrolling = false
 
 
                         if (p == 1) {
-                            Toast.makeText(requireContext(), "No More Results", Toast.LENGTH_SHORT)
+                            Toast.makeText(requireContext(), "No More Results gya", Toast.LENGTH_SHORT)
                                 .show()
                         } else {
                             fetchMoreData(p)
@@ -170,7 +170,7 @@ class DownloadsFragment : Fragment() {
                             val b = "Year:-" + j.getString("Year")
                             id = j.getString("imdbID")
                             val e = j.getString("Poster")
-                            elist.add(ExampleItem(a, b, e))
+                            elist.add(ExampleItem(a, b, e,id))
                         }
                         eadap.notifyDataSetChanged()
                         progressBar.visibility = View.GONE
