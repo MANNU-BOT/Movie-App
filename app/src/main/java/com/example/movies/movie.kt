@@ -11,6 +11,7 @@ import com.android.volley.toolbox.Volley
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movie.*
 import org.json.JSONObject
+import java.util.*
 
 class movie : AppCompatActivity() {
 
@@ -28,7 +29,7 @@ class movie : AppCompatActivity() {
         val t: String? = b.getString("mov")
 
         val queue = Volley.newRequestQueue(this)
-        var url = "https://www.omdbapi.com/?apikey=43bddbb&i=$t"
+        val url = "https://www.omdbapi.com/?apikey=43bddbb&i=$t&plot=full"
 
 
         val stringRequest = StringRequest(
@@ -50,7 +51,7 @@ class movie : AppCompatActivity() {
                 votesD.text = "IMDB votes:-" + j.getString("imdbVotes")
                 awardD.text = "Awards:-" + j.getString("Awards")
                 runtimeD.text = "Runtime:-" + j.getString("Runtime")
-                typeD.text=j.getString("Type")
+                typeD.text=j.getString("Type").toUpperCase(Locale.ROOT)
                 val s = j.getString("Poster")
                 Picasso.with(this).load(s).into(movieView)
 

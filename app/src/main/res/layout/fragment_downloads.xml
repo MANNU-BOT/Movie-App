@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".DownloadsFragment">
 
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -27,6 +28,7 @@
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
+        android:id="@+id/tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -73,85 +75,45 @@
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/ResultCard"
+    <TextView
+        android:id="@+id/noOfResults"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:visibility="gone"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="16dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/search_bg">
-
-            <ImageView
-                android:id="@+id/iS"
-                android:layout_width="150dp"
-                android:layout_height="200dp"
-                android:src="@drawable/ic_launcher_background" />
-
-            <TextView
-                android:id="@+id/iT1"
-                android:layout_width="194dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_toEndOf="@id/iS"
-                android:layout_toRightOf="@id/iS"
-                android:fontFamily="@font/neo_latina"
-                android:text="Error"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/iT2"
-                android:layout_width="191dp"
-                android:layout_height="30dp"
-                android:layout_below="@id/iT1"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="4dp"
-                android:layout_toRightOf="@id/iS"
-                android:fontFamily="@font/neo_latina"
-                android:text="@string/genre"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/iT3"
-                android:layout_width="193dp"
-                android:layout_height="24dp"
-                android:layout_below="@id/iT2"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="4dp"
-                android:layout_toRightOf="@+id/iS"
-                android:fontFamily="sans-serif-condensed-light"
-                android:text="@string/year" />
-
-            <TextView
-                android:id="@+id/iT4"
-                android:layout_width="192dp"
-                android:layout_height="53dp"
-                android:layout_below="@id/iT3"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="4dp"
-                android:layout_toRightOf="@id/iS"
-                android:fontFamily="@font/neo_latina"
-                android:text="@string/moreinfo" />
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Total Results-"
+        android:textColor="#ACC3CD"
+        android:visibility="gone"/>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
-        android:clipToPadding="false"
-        android:padding="4dp"
-        tools:listitem="@layout/item" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:clipToPadding="false"
+            android:padding="4dp"
+            tools:listitem="@layout/item" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone" />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mainProgressBar"
+            android:visibility="gone"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
 
 
 </LinearLayout>

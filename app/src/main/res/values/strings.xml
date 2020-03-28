@@ -12,6 +12,7 @@
     <string name="navclose">Navigation close</string>
     <string name="searchicon">Search</string>
     <string name="selectType">Select Type(Optional)</string>
+    <string name="batman">Batman</string>
 
     <!--AppDrawer Texts-->
     <string name="genre">Genre</string>
