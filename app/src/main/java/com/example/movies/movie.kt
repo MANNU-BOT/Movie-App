@@ -1,6 +1,7 @@
 package com.example.movies
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,7 @@ import java.util.*
 
 class movie : AppCompatActivity() {
 
+    lateinit var data: String
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +24,7 @@ class movie : AppCompatActivity() {
 
         val b = intent.extras
         titleD.text = b!!.getString("mov")
-        heart.setOnAnimationEndListener {
-            Toast.makeText(this, "Added to Favorites", Toast.LENGTH_SHORT).show()
-        }
+
 
         val t: String? = b.getString("mov")
 
@@ -51,16 +51,42 @@ class movie : AppCompatActivity() {
                 votesD.text = "IMDB votes:-" + j.getString("imdbVotes")
                 awardD.text = "Awards:-" + j.getString("Awards")
                 runtimeD.text = "Runtime:-" + j.getString("Runtime")
-                typeD.text=j.getString("Type").toUpperCase(Locale.ROOT)
+                typeD.text = j.getString("Type").toUpperCase(Locale.ROOT)
                 val s = j.getString("Poster")
                 Picasso.with(this).load(s).into(movieView)
 
+                data =
+                    "Movie Name:-${j.getString("Title")}\nReleased on:-${j.getString("Released")}\nGenre:-${j.getString(
+                        "Genre"
+                    )}\n\n\n" +
+                            "Plot:-${j.getString("Plot")}\n\nDirector:-${j.getString("Director")}\n\n" +
+                            "Actors:-${j.getString("Actors")}IMDB rating:-${j.getString("imdbRating")}\n\nAwards:-${j.getString(
+                                "Awards"
+                            )}" +
+                            "Poster Link:-${j.getString("Poster")}\n\n\nThis data is sent from Movies App which uses OMDB Api"
 
             },
-            Response.ErrorListener { plotD.text = "That didn't work!" })
+            Response.ErrorListener {
+                plotD.text = "That didn't work!, Check your Internet Connection"
+                data = "Due to error cannot load Movie Info,Check your internet connection"
+            })
 
         queue.add(stringRequest)
 
+        shareD.setOnClickListener {
+
+            val i = Intent()
+            i.action = Intent.ACTION_SEND
+            i.putExtra(Intent.EXTRA_TEXT, data)
+            i.type = "text/plain"
+            startActivity(Intent.createChooser(i, "Share Movie Info to:-"))
+        }
+        heart.setOnAnimationEndListener {
+            Toast.makeText(this, "Added to Favorites", Toast.LENGTH_SHORT).show()
+        }
+        wishD.setOnClickListener {
+            Toast.makeText(this, "Added to Wishlist", Toast.LENGTH_SHORT).show()
+        }
 
     }
 }

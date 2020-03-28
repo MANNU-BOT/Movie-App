@@ -132,7 +132,7 @@ class DownloadsFragment : Fragment() {
 
 
                         if (p == 1) {
-                            Toast.makeText(requireContext(), "No More Results gya", Toast.LENGTH_SHORT)
+                            Toast.makeText(requireContext(), "No More Results", Toast.LENGTH_SHORT)
                                 .show()
                         } else {
                             fetchMoreData(p)
