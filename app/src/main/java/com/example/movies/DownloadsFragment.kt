@@ -1,13 +1,16 @@
 package com.example.movies
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.AbsListView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -47,20 +50,22 @@ class DownloadsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         searchTitle.setOnClickListener {
-            tab.visibility=View.VISIBLE
-            noOfResults.visibility=View.GONE
+            tab.visibility = View.VISIBLE
+            noOfResults.visibility = View.GONE
         }
 
         searchButtonMain.setOnClickListener {
 
-            mainProgressBar.visibility=View.VISIBLE
-            val h=Handler()
+
+            it.hideKeyboard()
+            mainProgressBar.visibility = View.VISIBLE
+            val h = Handler()
             h.postDelayed({
-                tab.visibility=View.GONE
-                noOfResults.visibility=View.VISIBLE
+                tab.visibility = View.GONE
+                noOfResults.visibility = View.VISIBLE
                 elist = arrayListOf()
-                s = searchTitle.text.toString()
-                y = searchYear.text.toString()
+                s = searchTitle.text.toString().trim()
+                y = searchYear.text.toString().trim()
                 val queue: RequestQueue = Volley.newRequestQueue(requireContext())
                 val omdb = "https://www.omdbapi.com/?apikey=43bddbb&s=$s&y=$y"
 
@@ -71,9 +76,10 @@ class DownloadsFragment : Fragment() {
                     null,
                     Response.Listener { response ->
                         if (response.getString("Response") == "True") {
+                            flag = 2
                             p = ((response.getString("totalResults").toInt()) / 10) + 1
                             val noOfRes: String = response.getString("totalResults")
-                            noOfResults.text= "Total Results:-$noOfRes"
+                            noOfResults.text = "Total Results:-$noOfRes"
                             val JsonAr = response.getJSONArray("Search")
 
                             for (i in 0 until JsonAr.length() step 1) {
@@ -82,17 +88,31 @@ class DownloadsFragment : Fragment() {
                                 val b = "Year:-" + j.getString("Year")
                                 id = j.getString("imdbID")
                                 val e = j.getString("Poster")
-                                elist.add(ExampleItem(a, b, e,id))
+                                elist.add(ExampleItem(a, b, e, id))
                             }
                             eadap = ExampleAdapter(requireContext(), elist)
                             recycler.adapter = eadap
                             recycler.visibility = View.VISIBLE
-                            mainProgressBar.visibility=View.GONE
+                            mainProgressBar.visibility = View.GONE
                         } else {
                             recycler.visibility = View.GONE
-                            mainProgressBar.visibility=View.GONE
-                            Toast.makeText(requireContext(), "Not Found :( ", Toast.LENGTH_SHORT).show()
-                            noOfResults.text="Total Results:- 0 {not found}"
+                            mainProgressBar.visibility = View.GONE
+                            if (searchTitle.text.toString().trim() == "") {
+                                Toast.makeText(
+                                    requireContext(),
+                                    "Input a movie name",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                searchTitle.error = "Movie name here"
+                                noOfResults.text = "eg:- Batman"
+                            } else {
+                                Toast.makeText(
+                                    requireContext(),
+                                    "Not Found :( ",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                noOfResults.text = "Total Results:- 0 {not found}"
+                            }
                         }
                     },
                     Response.ErrorListener {
@@ -101,7 +121,7 @@ class DownloadsFragment : Fragment() {
                     })
                 queue.add(json)
 
-            },1000)
+            }, 1000)
 
 
 
@@ -148,7 +168,7 @@ class DownloadsFragment : Fragment() {
     private fun fetchMoreData(page: Int) {
 
         if (flag > page) {
-            Toast.makeText(requireContext(), "No more results", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "No more results ...", Toast.LENGTH_SHORT).show()
         } else {
             progressBar.visibility = View.VISIBLE
 
@@ -170,10 +190,12 @@ class DownloadsFragment : Fragment() {
                             val b = "Year:-" + j.getString("Year")
                             id = j.getString("imdbID")
                             val e = j.getString("Poster")
-                            elist.add(ExampleItem(a, b, e,id))
+                            elist.add(ExampleItem(a, b, e, id))
                         }
                         eadap.notifyDataSetChanged()
                         progressBar.visibility = View.GONE
+                        flag += 1
+
                     },
                     Response.ErrorListener {
                         recycler.visibility = View.GONE
@@ -181,11 +203,15 @@ class DownloadsFragment : Fragment() {
                     })
                 q.add(js)
             }, 1000)
-            flag += 1
+
         }
 
     }
 
+    fun View.hideKeyboard() {
+        val inputManager = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(windowToken, 0)
+    }
 }//end
 
 

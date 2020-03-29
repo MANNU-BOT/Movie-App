@@ -1,16 +1,34 @@
 package com.example.movies
 
-import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AbsListView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.squareup.picasso.Picasso
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.fragment_top_rated.*
 
 class TopRatedFragment : Fragment() {
 
+    lateinit var elist: ArrayList<ExampleItemTR>
+    lateinit var eadap: ExampleAdapterTR
+    lateinit var id: String
+    var p: Int = 0
+    var flag: Int = 2
+    var isScrolling: Boolean = false
+    var curItem: Int = 0
+    var totItem: Int = 0
+    var scrOutItem: Int = 0
+    lateinit var h: Handler
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -22,82 +40,132 @@ class TopRatedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Picasso.with(requireContext())
-            .load("https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg")
-            .into(lcard1)
-        Picasso.with(requireContext())
-            .load("https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg")
-            .into(lcard2)
-        Picasso.with(requireContext())
-            .load("https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg")
-            .into(lcard3)
-        Picasso.with(requireContext())
-            .load("https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg")
-            .into(lcard4)
-        Picasso.with(requireContext())
-            .load("https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg")
-            .into(lcard5)
-        Picasso.with(requireContext())
-            .load("https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg")
-            .into(lcard6)
-        Picasso.with(requireContext())
-            .load("https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg")
-            .into(lcard7)
-        Picasso.with(requireContext())
-            .load("https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg")
-            .into(lcard8)
-        Picasso.with(requireContext())
-            .load("https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_SX300.jpg")
-            .into(lcard9)
-        Picasso.with(requireContext())
-            .load("https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg")
-            .into(lcard10)
+        mainProgressBarTR.visibility = View.VISIBLE
+        val h = Handler()
+        h.postDelayed({
+            elist = arrayListOf()
 
-        DisplayTopRated()
+            val queue: RequestQueue = Volley.newRequestQueue(requireContext())
+            val url =
+                "https://api.themoviedb.org/3/movie/top_rated?api_key=ac2a4cc7c14f6ec89fdc0fbe992b48e2"
+
+            val json = JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,
+                Response.Listener { response ->
+                    flag = 2
+                    p = response.getString("total_pages").toInt()
+                    val JsonAr = response.getJSONArray("results")
+
+                    for (i in 0 until JsonAr.length() step 1) {
+
+                        val j = JsonAr.getJSONObject(i)
+                        val a = j.getString("poster_path")
+                        val b = j.getString("vote_average")
+                        id = j.getString("id")
+                        elist.add(ExampleItemTR(a, b, id))
+                    }
+                    eadap = ExampleAdapterTR(requireContext(), elist)
+                    recyclerTR.adapter = eadap
+                    recyclerTR.visibility = View.VISIBLE
+                    mainProgressBarTR.visibility = View.GONE
+
+                },
+                Response.ErrorListener {
+                    recyclerTR.visibility = View.GONE
+                    mainProgressBarTR.visibility = View.GONE
+                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+                })
+            queue.add(json)
+
+        }, 1000)
+
+        recyclerTR.setHasFixedSize(true)
+        val manager = LinearLayoutManager(requireContext())
+        recyclerTR.layoutManager = manager
+
+        recyclerTR.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+
+                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+                    isScrolling = true
+                }
+            }
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                curItem = manager.childCount
+                totItem = manager.itemCount
+                scrOutItem = manager.findFirstVisibleItemPosition()
+
+                if ((isScrolling) && (curItem + scrOutItem == totItem)) {
+
+                    isScrolling = false
+
+
+                    if (p == 1) {
+                        Toast.makeText(requireContext(), "No More Results", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        fetchMoreData(p)
+                    }
+
+
+                }
+            }
+        })
     }
 
-    private fun DisplayTopRated() {
-        val i = Intent(requireContext(), movie::class.java)
-        lcard1.setOnClickListener {
-            i.putExtra("mov", "tt0111161")
-            startActivity(i)
+    private fun fetchMoreData(page: Int) {
+        if (flag > page) {
+            Toast.makeText(requireContext(), "No more results ...", Toast.LENGTH_SHORT).show()
+        } else {
+
+            progressBarTR.visibility = View.VISIBLE
+            h = Handler()
+            h.postDelayed({
+
+                val url =
+                    "https://api.themoviedb.org/3/movie/top_rated?api_key=ac2a4cc7c14f6ec89fdc0fbe992b48e2&page=$flag"
+                val q = Volley.newRequestQueue(requireContext())
+
+                val js = JsonObjectRequest(
+                    Request.Method.GET,
+                    url,
+                    null,
+                    Response.Listener { response ->
+                        val JsAr = response.getJSONArray("results")
+
+                        for (i in 0 until JsAr.length() step 1) {
+
+                            val j = JsAr.getJSONObject(i)
+                            val a = j.getString("poster_path")
+                            val b = j.getString("vote_average")
+                            id = j.getString("id")
+                            elist.add(ExampleItemTR(a, b, id))
+                        }
+                        eadap.notifyDataSetChanged()
+                        progressBarTR.visibility = View.GONE
+                        flag += 1
+                    },
+                    Response.ErrorListener {
+                        recyclerTR.visibility = View.GONE
+                        progressBarTR.visibility = View.GONE
+                        Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+                    })
+                q.add(js)
+
+
+            }, 1000)
+
+
         }
-        lcard2.setOnClickListener {
-            i.putExtra("mov", "tt0068646")
-            startActivity(i)
-        }
-        lcard3.setOnClickListener {
-            i.putExtra("mov", "tt0071562")
-            startActivity(i)
-        }
-        lcard4.setOnClickListener {
-            i.putExtra("mov", "tt0468569")
-            startActivity(i)
-        }
-        lcard5.setOnClickListener {
-            i.putExtra("mov", "tt0050083")
-            startActivity(i)
-        }
-        lcard6.setOnClickListener {
-            i.putExtra("mov", "tt0108052")
-            startActivity(i)
-        }
-        lcard7.setOnClickListener {
-            i.putExtra("mov", "tt0167260")
-            startActivity(i)
-        }
-        lcard8.setOnClickListener {
-            i.putExtra("mov", "tt0110912")
-            startActivity(i)
-        }
-        lcard9.setOnClickListener {
-            i.putExtra("mov", "tt0060196")
-            startActivity(i)
-        }
-        lcard10.setOnClickListener {
-            i.putExtra("mov", "tt0120737")
-            startActivity(i)
-        }
+
     }
+
 
 }

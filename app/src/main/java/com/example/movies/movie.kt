@@ -53,7 +53,12 @@ class movie : AppCompatActivity() {
                 runtimeD.text = "Runtime:-" + j.getString("Runtime")
                 typeD.text = j.getString("Type").toUpperCase(Locale.ROOT)
                 val s = j.getString("Poster")
-                Picasso.with(this).load(s).into(movieView)
+                if (s == "N/A")
+                    Picasso.with(this).load("https://lh3.googleusercontent.com/proxy/CccEHvVgQvpSEUBlRgCwG2ohovqp_sHRAsQL2swS-4qFmCAWhF-VRmVuLTBHPXC4R7kIXCMXQ3hvF2FTlyEu9eWOki-EiptK0ZIo8g").into(
+                        movieView
+                    )
+                else
+                    Picasso.with(this).load(s).into(movieView)
 
                 data =
                     "Movie Name:-${j.getString("Title")}\nReleased on:-${j.getString("Released")}\nGenre:-${j.getString(
@@ -62,7 +67,7 @@ class movie : AppCompatActivity() {
                             "Plot:-${j.getString("Plot")}\n\nDirector:-${j.getString("Director")}\n\n" +
                             "Actors:-${j.getString("Actors")}IMDB rating:-${j.getString("imdbRating")}\n\nAwards:-${j.getString(
                                 "Awards"
-                            )}" +
+                            )}\n" +
                             "Poster Link:-${j.getString("Poster")}\n\n\nThis data is sent from Movies App which uses OMDB Api"
 
             },
@@ -84,7 +89,7 @@ class movie : AppCompatActivity() {
         heart.setOnAnimationEndListener {
             Toast.makeText(this, "Added to Favorites", Toast.LENGTH_SHORT).show()
         }
-        wishD.setOnClickListener {
+        wishD.setOnAnimationEndListener {
             Toast.makeText(this, "Added to Wishlist", Toast.LENGTH_SHORT).show()
         }
 

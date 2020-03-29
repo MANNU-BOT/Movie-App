@@ -83,7 +83,7 @@
         android:layout_marginTop="8dp"
         android:text="Total Results-"
         android:textColor="#ACC3CD"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
 
     <RelativeLayout
@@ -106,12 +106,13 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:visibility="gone" />
+
         <ProgressBar
+            android:id="@+id/mainProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/mainProgressBar"
-            android:visibility="gone"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
 
     </RelativeLayout>
 

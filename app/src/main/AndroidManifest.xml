@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".movie2"></activity>
         <activity android:name=".Login" />
         <activity android:name=".SampleMovies" />
         <activity android:name=".movie" />
