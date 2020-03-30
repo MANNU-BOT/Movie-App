@@ -48,8 +48,14 @@ class movie2 : AppCompatActivity() {
                 budgetE.text = "Budget:-" + response.getString("budget")
                 revenueE.text = "Revenue:-" + response.getString("revenue")
 
+
                 val a: String = response.getString("poster_path")
-                Picasso.with(this).load("https://image.tmdb.org/t/p/w500${a}").into(movieViewE)
+                if(a=="null"){
+                    Picasso.with(this).load("https://lh3.googleusercontent.com/proxy/CccEHvVgQvpSEUBlRgCwG2ohovqp_sHRAsQL2swS-4qFmCAWhF-VRmVuLTBHPXC4R7kIXCMXQ3hvF2FTlyEu9eWOki-EiptK0ZIo8g").into(
+                        movieViewE
+                    )
+                }else{
+                Picasso.with(this).load("https://image.tmdb.org/t/p/w500${a}").into(movieViewE)}
 
                 val b: Boolean = response.getBoolean("adult")
                 if (!b)
@@ -75,7 +81,6 @@ class movie2 : AppCompatActivity() {
 
                 temp1 = response.getString("homepage")
 
-
                 data =
                     "Title:-${response.getString("title")}\nOriginal Title:-${response.getString("original_title")}\nYear Released:-${response.getString(
                         "release_date"
@@ -85,7 +90,7 @@ class movie2 : AppCompatActivity() {
                         "runtime"
                     )}\nVotes:-${response.getString("vote_count")}\nRating:-${response.getString("vote_average")}\nPopularity:-${response.getString(
                         "popularity"
-                    )}\nBudget:-${response.getString("budget")}\nRevenue:-${response.getString("revenue")}\n\nPoster:-${"https://image.tmdb.org/t/p/w500${a}"}"
+                    )}\nBudget:-${response.getString("budget")}\nRevenue:-${response.getString("revenue")}\n\nPoster:-${"https://image.tmdb.org/t/p/w500${a}"}\n\n${temp1}yy"
 
 
             },
@@ -104,7 +109,7 @@ class movie2 : AppCompatActivity() {
         }
         youtubeE.setOnClickListener {
 
-            val tmdb =
+            /*val tmdb =
                 "https://api.themoviedb.org/3/movie/100/videos?api_key=ac2a4cc7c14f6ec89fdc0fbe992b48e2"
             val q = Volley.newRequestQueue(this)
 
@@ -122,7 +127,7 @@ class movie2 : AppCompatActivity() {
                     Toast.makeText(this,"No Trailer Found",Toast.LENGTH_SHORT).show()
                 })
             q.add(j)
-           Toast.makeText(this,"${temp2}",Toast.LENGTH_SHORT).show()
+           Toast.makeText(this,"${temp2}",Toast.LENGTH_SHORT).show()*/
 
         }
         shareE.setOnClickListener {
