@@ -59,7 +59,6 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_toRightOf="@id/imageA"
-                android:fontFamily="@font/neo_latina"
                 android:text="@string/Rating" />
         </RelativeLayout>
 
@@ -77,7 +76,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/neo_latina"
             android:padding="12dp"
             android:text="@string/About" />
 
@@ -101,7 +99,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/neo_latina"
                 android:text="@string/Developer" />
 
             <TextView
@@ -109,7 +106,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:fontFamily="@font/neo_latina"
                 android:gravity="center"
                 android:text="@string/name"
                 android:textColor="#3D5AFE"

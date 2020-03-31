@@ -54,29 +54,12 @@
                     app:cardCornerRadius="8dp"
                     app:cardElevation="12dp">
 
-                    <RelativeLayout
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/tried1" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/tried1" />
-
-
-                        <TextView
-                            style="@style/CardTextStyle"
-
-                            android:text="@string/Action"
-                            android:textColor="#BAF1EF" />
-
-                        <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_alignParentBottom="true"
-                            android:src="@drawable/actionicon" />
-                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -89,27 +72,12 @@
                     app:cardCornerRadius="8dp"
                     app:cardElevation="12dp">
 
-                    <RelativeLayout
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/tried2" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/tried2" />
-
-                        <TextView
-                            style="@style/CardTextStyle"
-                            android:text="@string/horror"
-                            android:textColor="#D81B40" />
-
-                        <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_alignParentBottom="true"
-                            android:src="@drawable/horroicon" />
-                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -122,31 +90,13 @@
                     app:cardCornerRadius="8dp"
                     app:cardElevation="12dp">
 
-                    <RelativeLayout
+
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/com3" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/com3" />
-
-                        <TextView
-                            style="@style/CardTextStyle"
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/Comedy"
-                            android:textColor="#F5F3F8" />
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="12dp"
-                            android:src="@drawable/comedyicon" />
-                    </RelativeLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -160,27 +110,13 @@
                     app:cardCornerRadius="8dp"
                     app:cardElevation="12dp">
 
-                    <RelativeLayout
+
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ani20" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ani20" />
-
-                        <TextView
-                            style="@style/CardTextStyle"
-                            android:text="@string/anime"
-                            android:textColor="#65D3DC" />
-
-                        <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:layout_alignParentBottom="true"
-                            android:src="@drawable/animeicon" />
-                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -193,28 +129,13 @@
                     app:cardCornerRadius="8dp"
                     app:cardElevation="12dp">
 
-                    <RelativeLayout
+
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/anim6" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/anim6" />
-
-                        <TextView
-                            style="@style/CardTextStyle"
-                            android:text="@string/Animated"
-                            android:textColor="#000000" />
-
-                        <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_alignParentBottom="true"
-                            android:src="@drawable/animatedicon" />
-
-                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
@@ -228,28 +149,14 @@
                     app:cardCornerRadius="8dp"
                     app:cardElevation="12dp">
 
-                    <RelativeLayout
+
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/anim11" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/anim11" />
 
-                        <TextView
-                            style="@style/CardTextStyle"
-                            android:layout_marginRight="8dp"
-                            android:text="@string/Kids"
-                            android:textColor="#CD1CEC" />
-
-                        <ImageView
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_alignParentBottom="true"
-                            android:src="@drawable/kidsicon" />
-                    </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
             </GridLayout>
@@ -275,6 +182,11 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/t1"
+                    style="@style/RecyclerHeadingText"
+                    android:text="Heading-" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler1"
                     android:layout_width="match_parent"
@@ -286,104 +198,84 @@
                     android:scrollbars="none"
                     tools:listitem="@layout/item4" />
 
+                <TextView
+                    android:id="@+id/t2"
+                    style="@style/RecyclerHeadingText" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="20dp"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
-                    tools:listitem="@layout/item4" />
+                    tools:listitem="@layout/item4"
+                    style="@style/MiniRecyclers" />
 
+                <TextView
+                    android:id="@+id/t3"
+                    style="@style/RecyclerHeadingText"/>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="20dp"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
+                    style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
+
+                <TextView
+                    android:id="@+id/t4"
+                    style="@style/RecyclerHeadingText"  />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="20dp"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
+                    style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
+
+                <TextView
+                    android:id="@+id/t5"
+                    style="@style/RecyclerHeadingText"  />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="20dp"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
+                    style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
+
+                <TextView
+                    android:id="@+id/t6"
+                    style="@style/RecyclerHeadingText" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="20dp"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
+                    style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
+
+                <TextView
+                    android:id="@+id/t7"
+                    style="@style/RecyclerHeadingText"  />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="20dp"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
+                    style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
+
+                <TextView
+                    android:id="@+id/t8"
+                    style="@style/RecyclerHeadingText"  />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="20dp"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
+                    style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
+
+                <TextView
+                    android:id="@+id/t9"
+                    style="@style/RecyclerHeadingText"  />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="20dp"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
+                    style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
+
+                <TextView
+                    android:id="@+id/t10"
+                    style="@style/RecyclerHeadingText"  />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="20dp"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
+                    style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
 
             </LinearLayout>

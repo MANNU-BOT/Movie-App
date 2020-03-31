@@ -47,4 +47,14 @@ class ExampleAdapterTR(con: Context, private val elist: List<ExampleItemTR>) :
         }
 
     }
+
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+    //The above two function prevents data to duplicate
 }

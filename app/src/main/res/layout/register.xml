@@ -84,7 +84,7 @@
         android:background="@color/frag1"
         android:elevation="16dp"
         android:gravity="center"
-        android:text="Register"
+        android:text="Register and Login"
 
         android:textColor="#ffffff"
         android:textSize="20sp"

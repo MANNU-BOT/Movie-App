@@ -18,7 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/neo_latina"
         android:text="@string/policy"
         android:textColor="#030304"
         android:textSize="12sp" />

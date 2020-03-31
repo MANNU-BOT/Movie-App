@@ -27,6 +27,7 @@ class Login : AppCompatActivity() {
 
         SignUpButton.setOnClickListener {
             startActivity(Intent(this, Register::class.java))
+            finish()
         }
 
         LoginButton.setOnClickListener {
@@ -75,15 +76,10 @@ class Login : AppCompatActivity() {
     private fun updateUI(currentUser: FirebaseUser?) {
 
         if (currentUser != null) {
-            if (currentUser.isEmailVerified) {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
-            } else {
-                Toast.makeText(
-                    baseContext, "Verify your email",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+
+
         } else {
             Toast.makeText(
                 baseContext, "Login Failed",

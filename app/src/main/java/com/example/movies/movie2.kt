@@ -12,7 +12,6 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movie2.*
-import org.json.JSONArray
 
 class movie2 : AppCompatActivity() {
 
@@ -50,12 +49,15 @@ class movie2 : AppCompatActivity() {
 
 
                 val a: String = response.getString("poster_path")
-                if(a=="null"){
-                    Picasso.with(this).load("https://lh3.googleusercontent.com/proxy/CccEHvVgQvpSEUBlRgCwG2ohovqp_sHRAsQL2swS-4qFmCAWhF-VRmVuLTBHPXC4R7kIXCMXQ3hvF2FTlyEu9eWOki-EiptK0ZIo8g").into(
-                        movieViewE
-                    )
-                }else{
-                Picasso.with(this).load("https://image.tmdb.org/t/p/w500${a}").into(movieViewE)}
+                if (response.getString("poster_path")=="null") {
+                    Picasso.with(this)
+                        .load("https://lh3.googleusercontent.com/proxy/CccEHvVgQvpSEUBlRgCwG2ohovqp_sHRAsQL2swS-4qFmCAWhF-VRmVuLTBHPXC4R7kIXCMXQ3hvF2FTlyEu9eWOki-EiptK0ZIo8g")
+                        .into(
+                            movieViewE
+                        )
+                } else {
+                    Picasso.with(this).load("https://image.tmdb.org/t/p/w500${a}").into(movieViewE)
+                }
 
                 val b: Boolean = response.getBoolean("adult")
                 if (!b)

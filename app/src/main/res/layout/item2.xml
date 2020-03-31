@@ -17,8 +17,7 @@
             android:id="@+id/limg"
             android:layout_width="90dp"
             android:layout_height="120dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ac11" />
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/lT1"

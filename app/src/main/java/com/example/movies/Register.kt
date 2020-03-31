@@ -63,14 +63,11 @@ class Register : AppCompatActivity() {
                     val auth = FirebaseAuth.getInstance()
                     val user = auth.currentUser
 
-                    user?.sendEmailVerification()
-                        ?.addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                val i = Intent(this, Login::class.java)
-                                startActivity(i)
-                                finish()
-                            }
-                        }
+                    val i = Intent(this, Login::class.java)
+                    startActivity(i)
+                    finish()
+
+
                 } else {
                     Toast.makeText(
                         baseContext, "Registration Failed, Try Later",

@@ -50,4 +50,13 @@ class ExampleAdapterHM(con: Context, private val elist: List<ExampleItemHM>) :
             c.startActivity(it)
         }
     }
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
+    //The above two function prevents data to duplicate
 }

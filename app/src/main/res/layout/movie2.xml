@@ -59,7 +59,6 @@
                 android:id="@+id/genreE"
                 style="@style/videoPlayerText"
                 android:layout_marginLeft="12dp"
-                android:fontFamily="@font/neo_latina"
                 android:paddingBottom="8dp"
                 android:text="genres" />
 

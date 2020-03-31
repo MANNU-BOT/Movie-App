@@ -56,7 +56,6 @@
                 android:id="@+id/genreD"
                 style="@style/videoPlayerText"
                 android:layout_marginLeft="12dp"
-                android:fontFamily="@font/neo_latina"
                 android:text="@string/genre" />
 
         </LinearLayout>

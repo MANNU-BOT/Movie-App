@@ -22,8 +22,7 @@
             android:layout_marginRight="47dp"
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/test" />
+            android:scaleType="centerCrop" />
 
         <RatingBar
             android:id="@+id/trR"
