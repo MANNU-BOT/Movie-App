@@ -11,22 +11,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/box1"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_margin="16dp"
+            style="@style/boxViews"
             app:cardCornerRadius="12dp"
             app:cardElevation="16dp">
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/box1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/pic1" />
-
+                android:scaleType="centerCrop" />
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
@@ -34,147 +31,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <GridLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:alignmentMode="alignMargins"
-                android:columnCount="2"
-                android:columnOrderPreserved="false"
-                android:padding="16dp"
-                android:rowCount="3">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/block1"
-                    android:layout_width="@dimen/cardWidth"
-                    android:layout_height="@dimen/cardHeight"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="12dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/tried1" />
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/block2"
-                    android:layout_width="@dimen/cardWidth"
-                    android:layout_height="@dimen/cardHeight"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="12dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/tried2" />
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/block3"
-                    android:layout_width="@dimen/cardWidth"
-                    android:layout_height="@dimen/cardHeight"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="12dp">
-
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/com3" />
-
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/block4"
-                    android:layout_width="@dimen/cardWidth"
-                    android:layout_height="@dimen/cardHeight"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="12dp">
-
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ani20" />
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/block5"
-                    android:layout_width="@dimen/cardWidth"
-                    android:layout_height="@dimen/cardHeight"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="12dp">
-
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/anim6" />
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/block6"
-                    android:layout_width="@dimen/cardWidth"
-                    android:layout_height="@dimen/cardHeight"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="#E9A6F4"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="12dp">
-
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/anim11" />
-
-
-                </androidx.cardview.widget.CardView>
-
-            </GridLayout>
-
-
             <androidx.cardview.widget.CardView
-                android:id="@+id/box2"
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:layout_margin="16dp"
+                style="@style/boxViews"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="16dp">
 
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/box2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/pic6" />
-
+                    android:scaleType="centerCrop" />
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -189,13 +55,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="20dp"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
+                    style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
 
                 <TextView
@@ -204,29 +64,56 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler2"
-                    tools:listitem="@layout/item4"
-                    style="@style/MiniRecyclers" />
+                    style="@style/MiniRecyclers"
+                    tools:listitem="@layout/item4" />
+
+                <androidx.cardview.widget.CardView
+                    style="@style/boxViews"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="16dp">
+
+                    <ImageView
+                        android:id="@+id/box3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+
+                </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/t3"
-                    style="@style/RecyclerHeadingText"/>
+                    style="@style/RecyclerHeadingText" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler3"
                     style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
 
+
                 <TextView
                     android:id="@+id/t4"
-                    style="@style/RecyclerHeadingText"  />
+                    style="@style/RecyclerHeadingText" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler4"
                     style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
 
+                <androidx.cardview.widget.CardView
+                    style="@style/boxViews"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="16dp">
+
+                    <ImageView
+                        android:id="@+id/box4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+                </androidx.cardview.widget.CardView>
+
                 <TextView
                     android:id="@+id/t5"
-                    style="@style/RecyclerHeadingText"  />
+                    style="@style/RecyclerHeadingText" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler5"
@@ -242,27 +129,52 @@
                     style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
 
+                <androidx.cardview.widget.CardView
+                    style="@style/boxViews"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="16dp">
+
+                    <ImageView
+                        android:id="@+id/box5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+
+                </androidx.cardview.widget.CardView>
+
                 <TextView
                     android:id="@+id/t7"
-                    style="@style/RecyclerHeadingText"  />
+                    style="@style/RecyclerHeadingText" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler7"
-                    style="@style/MiniRecyclers"
-                    tools:listitem="@layout/item4" />
+                    style="@style/MiniRecyclers" />
 
                 <TextView
                     android:id="@+id/t8"
-                    style="@style/RecyclerHeadingText"  />
+                    style="@style/RecyclerHeadingText" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler8"
                     style="@style/MiniRecyclers"
                     tools:listitem="@layout/item4" />
 
+                <androidx.cardview.widget.CardView
+                    style="@style/boxViews"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="16dp">
+
+                    <ImageView
+                        android:id="@+id/box6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+
+                </androidx.cardview.widget.CardView>
+
                 <TextView
                     android:id="@+id/t9"
-                    style="@style/RecyclerHeadingText"  />
+                    style="@style/RecyclerHeadingText" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler9"
@@ -271,7 +183,7 @@
 
                 <TextView
                     android:id="@+id/t10"
-                    style="@style/RecyclerHeadingText"  />
+                    style="@style/RecyclerHeadingText" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler10"

@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backimg"
-    android:orientation="vertical"
     tools:context=".SampleMovies">
 
+    <TextView
+        android:id="@+id/gridTitle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:fontFamily="@font/omiwa"
+        android:gravity="center"
+        android:textSize="20sp" />
 
-</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/gridTitle"
+        android:id="@+id/recyclerGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:scrollbars="none"
+        tools:listitem="@layout/item4" />
+
+    <ProgressBar
+        android:id="@+id/progressGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressGridBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

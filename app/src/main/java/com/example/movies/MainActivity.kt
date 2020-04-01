@@ -193,10 +193,22 @@ open class MainActivity : AppCompatActivity() {
                     startActivity(i)
                 }
                 R.id.hollywoodD -> {
-                    Toast.makeText(this, "clicked", Toast.LENGTH_LONG).show()
+                    y = "six"
+                    val i = Intent(this, SampleMovies::class.java)
+                    i.putExtra("key", y)
+                    startActivity(i)
                 }
                 R.id.kidsD -> {
-                    Toast.makeText(this, "clicked", Toast.LENGTH_LONG).show()
+                    y = "seven"
+                    val i = Intent(this, SampleMovies::class.java)
+                    i.putExtra("key", y)
+                    startActivity(i)
+                }
+                R.id.bollyD->{
+                    y = "eight"
+                    val i = Intent(this, SampleMovies::class.java)
+                    i.putExtra("key", y)
+                    startActivity(i)
                 }
                 R.id.aboutD -> {
                     val a = Intent(this, About::class.java)

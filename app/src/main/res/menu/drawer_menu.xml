@@ -18,8 +18,8 @@
                     android:title="@string/Comedy" />
 
                 <item
-                    android:id="@+id/hollywoodD"
-                    android:title="@string/Hollywood" />
+                    android:id="@+id/horrorD"
+                    android:title="@string/horror" />
 
                 <item
                     android:id="@+id/kidsD"
@@ -34,8 +34,12 @@
                     android:title="@string/Anime" />
 
                 <item
-                    android:id="@+id/horrorD"
-                    android:title="@string/horror" />
+                    android:id="@+id/hollywoodD"
+                    android:title="@string/Hollywood" />
+
+                <item
+                    android:id="@+id/bollyD"
+                    android:title="@string/bollywood"/>
             </menu>
         </item>
     </group>

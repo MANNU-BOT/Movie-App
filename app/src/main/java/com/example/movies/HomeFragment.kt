@@ -16,6 +16,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_home.*
 
 @Suppress("UNREACHABLE_CODE")
@@ -131,7 +132,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        AllButtons()
+        AllTheBoxesImage()
+        AllTheBoxesReaction()
         Recycler1()
         Recycler2()
         Recycler3()
@@ -144,38 +146,42 @@ class HomeFragment : Fragment() {
         Recycler10()
     }
 
+    private fun AllTheBoxesImage() {
+        Picasso.with(requireContext()).load("https://i5.walmartimages.com/dfw/4ff9c6c9-8451/k2-_97058f1c-a541-4c96-8c8e-9adc2494c83e.v1.jpg?odnWidth=912&odnHeight=500&odnBg=ffffff").into(box1)
+        Picasso.with(requireContext()).load("https://pbs.twimg.com/media/DvlpY_7UYAAH0Wf.jpg").into(box2)
+        Picasso.with(requireContext()).load("https://volganga.com/wordpress/wp-content/uploads/2015/07/Bahubali_2015_movie_HD_wallpapers_02.jpg").into(box3)
+        Picasso.with(requireContext()).load("https://animebirdreviews.files.wordpress.com/2016/06/5-centimeters-per-second_63921378881635.jpg?w=1200&h=690&crop=1").into(box4)
+        Picasso.with(requireContext()).load("https://c4.wallpaperflare.com/wallpaper/577/70/445/movie-suicide-squad-deadshot-el-diablo-wallpaper-preview.jpg").into(box5)
+        Picasso.with(requireContext()).load("https://www.geeky-gadgets.com/wp-content/uploads/2020/01/Fantasy-Island-movie-2020.jpg").into(box6)
+    }
 
-    fun AllButtons() {
-        block1.setOnClickListener {
-            val i = Intent(requireContext(), SampleMovies::class.java)
-            i.putExtra("key", "one")
+    private fun AllTheBoxesReaction() {
+        val i=Intent(requireContext(),movie2::class.java)
+        box1.setOnClickListener {
+            i.putExtra("mov","287947")
             startActivity(i)
         }
-        block2.setOnClickListener {
-            val i = Intent(requireContext(), SampleMovies::class.java)
-            i.putExtra("key", "three")
+        box2.setOnClickListener {
+            i.putExtra("mov","299534")
             startActivity(i)
         }
-        block3.setOnClickListener {
-            val i = Intent(requireContext(), SampleMovies::class.java)
-            i.putExtra("key", "two")
+        box3.setOnClickListener {
+            i.putExtra("mov","350312")
             startActivity(i)
         }
-        block4.setOnClickListener {
-            val i = Intent(requireContext(), SampleMovies::class.java)
-            i.putExtra("key", "five")
+        box4.setOnClickListener {
+            i.putExtra("mov","38142")
             startActivity(i)
         }
-        block5.setOnClickListener {
-            val i = Intent(requireContext(), SampleMovies::class.java)
-            i.putExtra("key", "four")
+        box5.setOnClickListener {
+            i.putExtra("mov","297761")
             startActivity(i)
         }
-        block6.setOnClickListener {
-            val i = Toast.makeText(requireContext(), "Not Available", Toast.LENGTH_SHORT)
-            i.setGravity(Gravity.CENTER, 0, 0)
-            i.show()
+        box6.setOnClickListener {
+            i.putExtra("mov","539537")
+            startActivity(i)
         }
+
     }
 
 
